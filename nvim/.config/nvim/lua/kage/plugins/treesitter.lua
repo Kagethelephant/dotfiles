@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {"windwp/nvim-ts-autotag",}, -- This is so treesitter can give us autoclosing
-  
+
   config = function()
     -- grab a handle on the treesitter plugin
     local treesitter = require("nvim-treesitter.configs")

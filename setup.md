@@ -12,6 +12,7 @@
 - Picom 
 - Xrandr
 - Brightness ctl
+- scrot
 - feh 
 - r (for a calculator)
 - libreOffice
