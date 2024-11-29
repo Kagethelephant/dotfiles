@@ -1,6 +1,7 @@
 # Packages
 ## Need Packages
 - Network Manager
+- Gparted
 - Firefox
 - Git
 - GitHub CLI
@@ -28,6 +29,11 @@
 
 
 # General Notes
+## Linux installation
+If you are using a bootable USB drive make sure you do the custion partitioning and 
+create a `/boot` directory with filesystem `fat32` (i dont actually know if this is the best file system) 
+and a `/` directory with `ext4`
+
 ## Crash Fix
 - "xset -dpms" and "xset s off" to prevent freezing on sleep
 

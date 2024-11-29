@@ -14,6 +14,39 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
 
+    telescope.setup({
+      pickers = {
+        live_grep = {
+          file_ignore_patterns = {
+              '.yarn*',
+              '.pki*',
+              '.vim*',
+              '.npm*',
+              '.viminfo*',
+              '.git*',
+              '.cache/*',
+              '.bash_*',
+              '.mozilla/*',
+              '.local/share/*',
+              '.bash*',
+              'node_modules',
+              '.git',
+              '.venv' },
+          additional_args = function(_)
+            return { "--hidden" }
+          end
+        },
+        find_files = {
+          file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+          hidden = true
+        }
+
+      },
+      extensions = {
+        "fzf"
+      },
+    })
+
     -- This improves the sorting performance
     telescope.load_extension("fzf")
 
