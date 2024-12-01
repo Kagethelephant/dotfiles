@@ -65,6 +65,7 @@ you can create a symlink to a file using `ln -s <sourcedir> <targetdir>` and you
 
 ## Battery
 You need to install a notification deamon (dunst) and a cron editor (cronie) to run the battery-notify script
-this script will give a low battery warning
+this script will give a low battery warning. Remember to run `systemctl enable cronie` and `systemctl start cronie`
+After you start cronie the first time it should add it to the systemd
 
 
