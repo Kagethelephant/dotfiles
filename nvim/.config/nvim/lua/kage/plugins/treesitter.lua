@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
-  dependencies = {"windwp/nvim-ts-autotag",}, -- This is so treesitter can give us autoclosing
+  -- dependencies = {"windwp/nvim-ts-autotag",}, -- This is so treesitter can give us autoclosing
 
   config = function()
     -- grab a handle on the treesitter plugin
@@ -15,7 +15,7 @@ return {
       -- enable indentation
       indent = { enable = true },
       -- enable autotagging (w/ nvim-ts-autotag plugin)
-      autotag = { enable = true },
+      -- autotag = { enable = true },
       -- ensure these language parsers are installed
       ensure_installed = {
         "json",
@@ -42,6 +42,7 @@ return {
       },
       -- You can add some internal keymappings here for navigating nodes (see documentation)
     })
+
 
     -- Create a keymap to view the treesitter map
     vim.keymap.set("n", "<leader>m", "<cmd>InspectTree<cr>", { desc = "TreeSitter Map" })

@@ -14,10 +14,11 @@ return {
 
         -- Make sure Mason installs all of these servers
         ensure_installed = {
+          "bashls", -- Bash server
           "lua_ls", -- Lua server
           "clangd", -- C++ server
           "ts_ls",  -- Javascript server
-          "templ",  -- HTML server
+          "html",  -- HTML server
           "unocss", -- CSS server
           "cmake",  -- Cmake server
           "jsonls", -- JSON server

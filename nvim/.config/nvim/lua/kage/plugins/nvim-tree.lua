@@ -1,6 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  
+
   dependencies = { {"nvim-tree/nvim-web-devicons"},{'b0o/nvim-tree-preview.lua'} }, --this is dependency in the documentation
   config = function()
     local nvimtree = require("nvim-tree")
@@ -10,7 +10,12 @@ return {
     vim.g.loaded_netrwPlugin = 1
 
     -- This sets the relitive number on the left and the width
-    nvimtree.setup({ view = { width = 35, relativenumber = true,} })
+    nvimtree.setup({
+      view = {
+        width = 35,
+        relativenumber = true,
+      }
+    })
 
     vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "File Explorer" }) -- toggle file explorer
     -- keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file

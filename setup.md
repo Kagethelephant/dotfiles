@@ -8,6 +8,9 @@
 - Plocate
 - Grep
 - LiveGrep
+- dunst (notification deamon)
+- cronie (cron jobs)
+- acpi (monitor and manage system recources)
 - Yay
 - Picom 
 - Xrandr

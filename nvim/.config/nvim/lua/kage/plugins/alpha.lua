@@ -2,7 +2,7 @@ return {
   "goolord/alpha-nvim",
   event = "VimEnter", -- Start this when vim is entered without directory
   config = function()
-    local alpha = require("alpha") 
+    local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
 
     -- -- Set header
