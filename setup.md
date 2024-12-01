@@ -63,4 +63,8 @@ you can also browse the repo in github with `gh browse`
 ## GNU Stow
 you can create a symlink to a file using `ln -s <sourcedir> <targetdir>` and you can view links in the list function with `ls -l:`
 
+## Battery
+You need to install a notification deamon (dunst) and a cron editor (cronie) to run the battery-notify script
+this script will give a low battery warning
+
 

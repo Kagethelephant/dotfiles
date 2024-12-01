@@ -5,7 +5,7 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
 
 BATTERY_LEVEL=`acpi -b | grep "Battery 0" | tr ',' '\n' | grep -P -o '[0-9]+(?=%)'`
 
-if [ $BATTERY_LEVEL -le 92 ]; then
+if [ $BATTERY_LEVEL -le 15 ]; then
   notify-send "Low Battery" "${BATTERY_LEVEL}% of battery remaining" -u normal -i none
 fi
 
