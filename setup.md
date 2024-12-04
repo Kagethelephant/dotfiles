@@ -8,9 +8,13 @@
 - Plocate
 - Grep
 - LiveGrep
+- Zip and Unzip
 - dunst (notification deamon)
 - cronie (cron jobs)
 - acpi (monitor and manage system recources)
+- net-tools
+- inetutils
+- netcat
 - Yay
 - Picom 
 - Xrandr

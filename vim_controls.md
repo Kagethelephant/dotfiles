@@ -8,6 +8,7 @@
 - `(shft + U)` will UNDO and 
 - `(ctrl + r)` will REDO
 - `=` will indent highlighted area correctly
+- `>>` and `<<` will indent and unindent line
 - TIP: if you enter Insert mode(by pressing `<Shift> I`) (or paste) with a block selection, enter a value, and hit escape it will copy the text on all selected lines
 
 ## REGISTERS
@@ -43,6 +44,9 @@
 - `o` will create a return below and enter insert mode
 - `O` will create a return above and enter insert mode
 
+- `Ctrl+w` and `-/+` or `</>`will change the size of the current split
+- `Ctrl+w` and `=` will equalize the splits
+
 
 # PLUGINS
 ## UNKNOWN
@@ -54,6 +58,6 @@
 - `r` to rename
 - `d` to delete
 - `bmv` to move marked items to cursor location
-- `<SPACE>e'` to 
+- `Ctrl+x` will open the document in a horizontal split
 
 
