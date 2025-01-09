@@ -1,9 +1,15 @@
 # VIM COMMANDS
+
+## ACCESSABILTY
+- `:set wrap!` will toggle wrap
+
 ## SELECT
 - `V` to select lines 
 - `(ctrl+v)` to select blocks "this is a test for git"
 
 ## MODIFICATION
+- `gc` will toggle comment but im not sure what plugin is doing this
+- `gcc` will do the same thing on cursor
 - `(ctrl + shift + u)` will let you enter unicode characters like this silly little guy §
 - `(shft + U)` will UNDO and 
 - `(ctrl + r)` will REDO
@@ -49,9 +55,6 @@
 
 
 # PLUGINS
-## UNKNOWN
-- `gc` will toggle comment but im not sure what plugin is doing this
-- `gcc` will do the same thing on cursor
 
 ## NVIM-TREE
 - `m` to mark
