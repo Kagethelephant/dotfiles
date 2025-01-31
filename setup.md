@@ -1,15 +1,17 @@
 # Packages
 ## Need Packages
 - Network Manager - On arch install
-- Gparted
-- Python - pacman (python3)
+- Gparted - pacman (gparted)
+- Python - pacman (python3) - UAR for specific version (python321)
 - npm - pacman (npm)
+- NodeJs - pacman (nodejs)
 - Firefox - pacman (firefox)
 - Git - pacman (git)
 - GitHub CLI - pacman (github-cli)
-- Plocate
-- Grep
-- LiveGrep
+- Plocate - pacman (plocate) *run `sudo updatedb` before using*
+- Grep - pacman (grep)
+- CMake - pacman (cmake)
+- LiveGrep - pacman (ripgrep)
 - Zip and Unzip - pacman (zip unzip)
 - dunst 
 - cronie 
@@ -18,24 +20,24 @@
 - inetutils
 - netcat
 - Yay - UAR (check interwebs)
-- Picom 
-- Xrandr
-- Brightness ctl
+- Picom - pacman (picom)
+- Xrandr - pacman (xorg-xrandr)
+- Brightness control - pacman (brightnessctl)
 - scrot
-- feh 
-- r (for a calculator)
-- libreOffice
+- feh - pacman (feh)
+- r - pacman (r)
+- libreOffice - pacman (libreoffice)
 - NeoVim - pacman (neovim)
 - jetbrains nerd font - pacman (ttf-jetbrains-mono)
-- XClip
+- XClip (clipboard provider needed for nvim) - pacman (xclip)
 - Tree (for terminal)
 
 ## Optional Packages
 - Ly Greeter - on arch install
-- Rofi
-- Kitty 
-- Fast Fetch
-- Polybar
+- Rofi - pacman (rofi)
+- Kitty (need to clone kitty themes) - pacman (kitty)
+- Fast Fetch - pacman (fastfetch)
+- Polybar - pacman (polybar)
 - GNU Stow - pacman (stow)
 
 
@@ -47,6 +49,10 @@ and a `/` directory with `ext4`
 
 ## Crash Fix
 - "xset -dpms" and "xset s off" to prevent freezing on sleep
+
+## Create bootable meadia
+use `sudo fdisk -l` to show find your usb, `sudo umount /dev/drive` and `sudo mkfs.vfat /dev/drive` to format the drive (you will need `dosfstools`)
+use ` cat path/to/isofile > dev/disk/by-id/id-of-usb` to install the installation media
 
 ## Polybar
 Polybar needs a special launch.rc file to ensure there is only one instance launced.
