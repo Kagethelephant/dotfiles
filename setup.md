@@ -1,21 +1,23 @@
 # Packages
 ## Need Packages
-- Network Manager
+- Network Manager - On arch install
 - Gparted
-- Firefox
-- Git
-- GitHub CLI
+- Python - pacman (python3)
+- npm - pacman (npm)
+- Firefox - pacman (firefox)
+- Git - pacman (git)
+- GitHub CLI - pacman (github-cli)
 - Plocate
 - Grep
 - LiveGrep
-- Zip and Unzip
-- dunst (notification deamon)
-- cronie (cron jobs)
+- Zip and Unzip - pacman (zip unzip)
+- dunst 
+- cronie 
 - acpi (monitor and manage system recources)
 - net-tools
 - inetutils
 - netcat
-- Yay
+- Yay - UAR (check interwebs)
 - Picom 
 - Xrandr
 - Brightness ctl
@@ -23,17 +25,18 @@
 - feh 
 - r (for a calculator)
 - libreOffice
-- NeoVim (need nerd font for most plugins)
+- NeoVim - pacman (neovim)
+- jetbrains nerd font - pacman (ttf-jetbrains-mono)
 - XClip
 - Tree (for terminal)
 
 ## Optional Packages
-- Ly Greeter
+- Ly Greeter - on arch install
 - Rofi
 - Kitty 
 - Fast Fetch
-- Polybar 
-- GNU Stow
+- Polybar
+- GNU Stow - pacman (stow)
 
 
 # General Notes
