@@ -17,14 +17,13 @@ return {
           "bashls", -- Bash server
           "lua_ls", -- Lua server
           "clangd", -- C++ server
-          --"ts_ls",  -- Javascript and Typescript server
           "ts_ls", -- Javascript and Typescript server
           "html",  -- HTML server
-          -- "unocss", -- CSS server
           "cssls", --CSS sercver
           "cmake",  -- Cmake server
           "jsonls", -- JSON server
           "pylsp",  -- Python server
+          "tailwindcss" --tailwind server
         }
       })
     end

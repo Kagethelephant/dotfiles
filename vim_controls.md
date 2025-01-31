@@ -58,6 +58,7 @@
 
 ## NVIM-TREE
 - `m` to mark
+- `bd` to delete marked files
 - `r` to rename
 - `d` to delete
 - `bmv` to move marked items to cursor location
