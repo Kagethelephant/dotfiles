@@ -7,7 +7,7 @@ return {
     end
   },
   -- //////////////////// MASON-LSPCONFIG ///////////////////////// 
-  { -- This is the Mason LSP config to configure the mason lsp settings and bridthes gap to nvim-lspconfig
+  { -- This is the Mason LSP config to configure the mason lsp settings and bridges gap to nvim-lspconfig
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
@@ -68,6 +68,11 @@ return {
 
         end,
       })
+
+      lspconfig.clangd.setup {
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+        root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+      }
 
       -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()

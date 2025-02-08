@@ -54,8 +54,6 @@
 - `Ctrl+w` and `=` will equalize the splits
 
 
-# PLUGINS
-
 ## NVIM-TREE
 - `m` to mark
 - `bd` to delete marked files
@@ -63,5 +61,8 @@
 - `d` to delete
 - `bmv` to move marked items to cursor location
 - `Ctrl+x` will open the document in a horizontal split
+- `H` will toggle show dotfiles
+- `I` will toggle gitignore files
+
 
 

@@ -17,7 +17,7 @@ set $mod Mod4
 # This starts up polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 # This sets the initial display settings (brightness is actually gamma)
-exec --no-startup-id xrandr --output eDP-1 --scale .70x.70
+exec --no-startup-id xrandr --output eDP-1 --scale .80x.80
 exec --no-startup-id xrandr --output eDP-1 --brightness 1
 # Turn off the power saving stuff because it crashes i3 on sleep
 exec --no-startup-id xset -dpms
