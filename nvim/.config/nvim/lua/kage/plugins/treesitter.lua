@@ -43,8 +43,8 @@ return {
       -- You can add some internal keymappings here for navigating nodes (see documentation)
     })
 
-
     -- Create a keymap to view the treesitter map
+    -- There are a lot more options but this is all ive been using
     vim.keymap.set("n", "<leader>m", "<cmd>InspectTree<cr>", { desc = "TreeSitter Map" })
   end,
 }

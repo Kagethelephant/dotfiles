@@ -11,8 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
---
-
 
 -- This will require the paths to out plugins and will also suppress notifications for changes
 require("lazy").setup("kage.plugins", {

@@ -11,6 +11,9 @@ This is just a nice looking splash screen for when you open up NVIM
 ### Autopairs
 This will autclose the parenthesis and whatnot
 
+### Cmake
+This just includes some functions for cmake to make configuring and building cmake easier
+
 ### Colorizer
 This will create little color swatches from color codes in most languages
 

@@ -61,6 +61,7 @@
 - `d` to delete
 - `bmv` to move marked items to cursor location
 - `Ctrl+x` will open the document in a horizontal split
+- `Ctrl+t` will open the document in a new tab
 - `H` will toggle show dotfiles
 - `I` will toggle gitignore files
 

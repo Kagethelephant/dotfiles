@@ -5,19 +5,9 @@ return {
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
 
-    -- -- Set header
-    -- dashboard.section.header.val = {
-    --   "                                                     ",
-    --   "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-    --   "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-    --   "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-    --   "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-    --   "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-    --   "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-    --   "                                                     ",
-    -- }
-    --
- dashboard.section.header.val = {
+    -- This is obviously where you configure the splash image
+    -- for the nvim welcom screen
+    dashboard.section.header.val = {
       [[                                                                       ]],
       [[                                                                       ]],
       [[                                                                       ]],
@@ -35,7 +25,7 @@ return {
       [[                                                                       ]],
     }
 
-    -- Set menu
+    -- Set menu options and their given commands
     dashboard.section.buttons.val = {
       dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
       dashboard.button("SPC e", "  > Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),

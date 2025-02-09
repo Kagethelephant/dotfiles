@@ -5,7 +5,7 @@ return {
 
   dependencies = {
     {"nvim-lua/plenary.nvim"},
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, --Improves sorting performance
+    {"nvim-telescope/telescope-fzf-native.nvim", build = "make" }, --Improves sorting performance
     {"nvim-tree/nvim-web-devicons"},
     {"BurntSushi/ripgrep"},
     {"nvim-telescope/telescope-ui-select.nvim"}
@@ -17,6 +17,7 @@ return {
 
     telescope.setup({
       pickers = {
+        -- Use telescope to find strings
         live_grep = {
           file_ignore_patterns = {
             '.yarn*',
@@ -37,9 +38,15 @@ return {
             return { "--hidden" }
           end
         },
+        -- Use telescope to find files
         find_files = {
           file_ignore_patterns = { 'node_modules', '.git', '.venv' },
           hidden = true
+        },
+        -- Use telesescope to preview themes
+        -- you can use this by ":Telescope colorscheme"
+        colorscheme = {
+          enable_preview = true
         }
 
       },

@@ -6,6 +6,8 @@ return {
       require("mason").setup()
     end
   },
+
+
   -- //////////////////// MASON-LSPCONFIG ///////////////////////// 
   { -- This is the Mason LSP config to configure the mason lsp settings and bridges gap to nvim-lspconfig
     "williamboman/mason-lspconfig.nvim",
@@ -28,6 +30,8 @@ return {
       })
     end
   },
+
+
   -- //////////////////// NVIM-LSPCONFIG /////////////////////////
   { -- Calling setup for the given LSP here will link the LSP to nvim
     "neovim/nvim-lspconfig",
@@ -44,6 +48,10 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
       -- import cmp-nvim-lsp plugin
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+
+
+        --********* SET KEYBINDINGS ***********
 
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -69,13 +77,18 @@ return {
         end,
       })
 
+
+        --********* MAKE THE LSP RECOGNISE CMAKE PATHS ***********
+
+      -- This will configure the LSP to look for the compile_commands.json file created by cmake. This will
+      -- allow the lsp to recognize the include paths defined in cmake. cmake has to be configured to generate this file
       lspconfig.clangd.setup {
         filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
         root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
       }
 
-      -- used to enable autocompletion (assign to every lsp server config)
-      local capabilities = cmp_nvim_lsp.default_capabilities()
+
+        --********* MAKE THE GIT SIGNS PRETTY ***********
 
       -- Change the Diagnostic symbols in the sign column (gutter)
       local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -84,17 +97,27 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
-      mason_lspconfig.setup_handlers({
+
+
+        --********* SETUP SERVERS ***********
+
+      -- used to enable autocompletion (assign to every lsp server config)
+      local capabilities = cmp_nvim_lsp.default_capabilities()
         -- default handler for installed servers
+      mason_lspconfig.setup_handlers({
+
+        -- This fixes a naming error with the tsserver
         function(server_name)
           if server_name == "tsserver" then
             server_name = "ts_ls"
           end
+
+          -- load the server with the default capabilities defined above
           lspconfig[server_name].setup({
             capabilities = capabilities,
           })
         end,
-        --********* A SERVER ***********
+        --********* A SERVER CONFIG GOES HERE ***********
 
       })
     end,
