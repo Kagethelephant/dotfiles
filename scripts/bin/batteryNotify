@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+export DISPLAY=0
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+
+
+WARNING_LEVEL=15
+GHOST_BATTERY=`acpi -b | grep -c "Battery 1:"`
+
+if [ $GHOST_BATTERY -eq 0 ]; then
+  BATTERY_DISCHARGING=`acpi -b | grep -c "Discharging"`
+  BATTERY_LEVEL=`acpi -b | grep -P -o '[0-9]+(?=%)'`
+else
+  BATTERY_DISCHARGING=`acpi -b | grep -w "Battery 1:" | grep -c "Discharging"`
+  BATTERY_LEVEL=`acpi -b | grep -w "Battery 1:" | grep -P -o '[0-9]+(?=%)'`
+fi
+
+
+# These files are used to save whether we have sent a notification yet
+EMPTY_FILE=/tmp/batteryempty
+FULL_FILE=/tmp/batteryfull
+
+# Reset the notification if the computer is charging
+if [ $BATTERY_DISCHARGING -eq 1 ] && [ -f $FULL_FILE ]; then
+  rm $FULL_FILE
+# elif [ $BATTERY_DISCHARGING -eq 0 ] && [ -f $EMPTY_FILE ]; then
+#   rm $EMPTY_FILE
+fi
+
+# If the battery is charging, full and has not notifyed yet
+if [ $BATTERY_LEVEL -gt 99 ] && [ $BATTERY_DISCHARGING -eq 0 ] && [ ! -f $FULL_FILE ]; then
+  notify-send "Battery Charged" "Battery is fully charged." -i "battery" -r 9991
+  touch $FULL_FILE
+# If the battery is low and is not charging and has not shown a notification
+elif [ $BATTERY_LEVEL -le $WARNING_LEVEL ] && [ $BATTERY_DISCHARGING -eq 1 ]; then
+  notify-send "Low Battery" "${BATTERY_LEVEL}% of battery remaining." -u critical -i "battery-alert" -r 9991
+  # touch $EMPTY_FILE
+fi
+
+#END
+

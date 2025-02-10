@@ -26,7 +26,8 @@ exec --no-startup-id xset s off
 exec --no-startup-id picom
 # Set the background
 exec --no-startup-id feh --bg-fill ~/Pictures/backgrounds/bkg.jpg
-exec --no-startup-id dunst
+# This starts dunst for notifications and directs it to our local config
+exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 
 # Font for window titles. Will also be used by the bar unless a different font

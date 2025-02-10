@@ -14,6 +14,7 @@
 - LiveGrep - pacman (ripgrep)
 - Zip and Unzip - pacman (zip unzip)
 - dunst - pacman (dunst)
+- libnotify (needed for dunst) - pacman (libnotify)
 - cronie - pacman (cronie)
 - acpi (used with dunst to get battery info) - pacman (acpi)
 - Yay - UAR (check interwebs)
@@ -78,5 +79,7 @@ type stow and the name of the folder to stow it. look at docummentation for fold
 You need to install a notification deamon (dunst) and a cron scheduler (cronie) to run the battery-notify script
 this script will give a low battery warning. Remember to run `systemctl enable cronie` and `systemctl start cronie`
 After you start cronie the first time it should add it to the systemd. You also need acpi to get the battery information.
+dunst requires libnotify too to send notifications. You need to use crontab -e and to set the cron job for the script (made one in the bin of the stow file)
+you might have to set the EDITER and VISUAL setings to nvim in your bashrc
 
 
