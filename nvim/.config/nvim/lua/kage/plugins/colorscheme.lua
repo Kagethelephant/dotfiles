@@ -10,6 +10,9 @@ return {
     priority = 1000,
 
     config = function ()
+      -- local theme = "base16-ia-dark"
+      -- local theme = "base16-tomorrow-night"
+      -- local theme = "base16-default-dark"
       -- local theme = "base16-everforest-dark-hard"
       -- local theme = "base16-classic-dark"
       -- local theme = "base16-brushtrees"

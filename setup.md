@@ -13,17 +13,14 @@
 - CMake - pacman (cmake)
 - LiveGrep - pacman (ripgrep)
 - Zip and Unzip - pacman (zip unzip)
-- dunst 
-- cronie 
-- acpi (monitor and manage system recources)
-- net-tools
-- inetutils
-- netcat
+- dunst - pacman (dunst)
+- cronie - pacman (cronie)
+- acpi (used with dunst to get battery info) - pacman (acpi)
 - Yay - UAR (check interwebs)
 - Picom - pacman (picom)
 - Xrandr - pacman (xorg-xrandr)
 - Brightness control - pacman (brightnessctl)
-- scrot
+- scrot (gets screenshots) - pacman (scrot)
 - feh - pacman (feh)
 - r - pacman (r)
 - libreOffice - pacman (libreoffice)
@@ -67,7 +64,7 @@ In arch its pacman instead of apt, for install `sudo pacman -S <package>`
 to update use `sudo pacman -Syu` and remove `sudo pacman -Runs`
 
 ## Terminal
-`Ctrl + L` will clear the terminal 
+`Ctrl + L` will clear the terminal
 
 ## Github CLI
 You can create a new GitHub repo from a git directory with gh_cli by running this command `gh repo create --source . --public`
@@ -75,10 +72,11 @@ you can also browse the repo in github with `gh browse`
 
 ## GNU Stow
 you can create a symlink to a file using `ln -s <sourcedir> <targetdir>` and you can view links in the list function with `ls -l:`
+type stow and the name of the folder to stow it. look at docummentation for folder structure. create a github repo to recreact config
 
-## Battery
-You need to install a notification deamon (dunst) and a cron editor (cronie) to run the battery-notify script
+## Notifications
+You need to install a notification deamon (dunst) and a cron scheduler (cronie) to run the battery-notify script
 this script will give a low battery warning. Remember to run `systemctl enable cronie` and `systemctl start cronie`
-After you start cronie the first time it should add it to the systemd
+After you start cronie the first time it should add it to the systemd. You also need acpi to get the battery information.
 
 

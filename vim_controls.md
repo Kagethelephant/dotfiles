@@ -10,8 +10,8 @@
 ## MODIFICATION
 - `gc` will toggle comment but im not sure what plugin is doing this
 - `gcc` will do the same thing on cursor
-- `(ctrl + shift + u)` will let you enter unicode characters like this silly little guy §
-- `(shft + U)` will UNDO and 
+- `(ctrl + U)` will let you enter unicode characters like this silly little guy §
+- `(U)` will UNDO and 
 - `(ctrl + r)` will REDO
 - `=` will indent highlighted area correctly
 - `>>` and `<<` will indent and unindent line
@@ -61,6 +61,7 @@
 - `d` to delete
 - `bmv` to move marked items to cursor location
 - `Ctrl+x` will open the document in a horizontal split
+- `Ctrl+v` will open the document in a verticle split
 - `Ctrl+t` will open the document in a new tab
 - `H` will toggle show dotfiles
 - `I` will toggle gitignore files
