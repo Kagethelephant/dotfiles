@@ -7,6 +7,7 @@
 - NodeJs - pacman (nodejs)
 - Firefox - pacman (firefox)
 - Git - pacman (git)
+- less (needed for git graph) - pacman(less)
 - GitHub CLI - pacman (github-cli)
 - Plocate - pacman (plocate) *run `sudo updatedb` before using*
 - Grep - pacman (grep)

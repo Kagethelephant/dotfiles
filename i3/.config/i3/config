@@ -14,18 +14,18 @@
 set $mod Mod4
 
 # !!! This is custom start up stuff !!!
+exec_always --no-startup-id xrandr --output eDP-1 --scale .80x.80
+# This sets the initial display settings (brightness is actually gamma)
+exec --no-startup-id xrandr --output eDP-1 --brightness 1
 # This starts up polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-# This sets the initial display settings (brightness is actually gamma)
-exec --no-startup-id xrandr --output eDP-1 --scale .80x.80
-exec --no-startup-id xrandr --output eDP-1 --brightness 1
 # Turn off the power saving stuff because it crashes i3 on sleep
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 # Start the comositor
 exec --no-startup-id picom
 # Set the background
-exec --no-startup-id feh --bg-fill ~/Pictures/backgrounds/bkg.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/backgrounds/bkg.jpg
 # This starts dunst for notifications and directs it to our local config
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
@@ -226,3 +226,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
+
+# Custom keymappings
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
