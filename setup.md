@@ -10,6 +10,7 @@
 - less (needed for git graph) - pacman(less)
 - GitHub CLI - pacman (github-cli)
 - Plocate - pacman (plocate) *run `sudo updatedb` before using*
+- Ranger - (simple CLI file manager) pacman (ranger) 
 - Grep - pacman (grep)
 - CMake - pacman (cmake)
 - LiveGrep - pacman (ripgrep)
@@ -29,6 +30,7 @@
 - NeoVim - pacman (neovim)
 - jetbrains nerd font - pacman (ttf-jetbrains-mono)
 - XClip (clipboard provider needed for nvim) - pacman (xclip)
+- ClamScan (virus scanning cli)- pacman (clamav)
 - Tree (for terminal)
 
 ## Optional Packages
@@ -67,6 +69,7 @@ to update use `sudo pacman -Syu` and remove `sudo pacman -Runs`
 
 ## Terminal
 `Ctrl + L` will clear the terminal
+`tar -zxvf <filename>` will un-compress a tar file
 
 ## Github CLI
 You can create a new GitHub repo from a git directory with gh_cli by running this command `gh repo create --source . --public`

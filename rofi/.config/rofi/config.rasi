@@ -3,4 +3,10 @@
 //@theme "/usr/share/rofi/themes/Indego.rasi"
 //@theme "/usr/share/rofi/themes/Paper.rasi"
 
-@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run ];
+}
+
+@theme "~/.config/rofi/kages-theme.rasi"

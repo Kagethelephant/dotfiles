@@ -8,6 +8,8 @@
 export PATH=${HOME}/bin/:${HOME}/.local/bin:/usr/SFML/lib:/usr/SFML/include:${PATH}
 export EDITOR=nvim
 export VISUAL=nvim
+export TERMINAL=kitty
+export TERM=kitty
 
 
 alias ls='ls --color=auto'
@@ -256,7 +258,7 @@ else
 UC="${BWHITE}"
 fi
 #hostname color
-HC="${BYELLOW}"
+HC="${BMAGENTA}"
 #regular color
 RC="${BWHITE}"
 #default color

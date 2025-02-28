@@ -8,6 +8,7 @@
 - `(ctrl+v)` to select blocks "this is a test for git"
 
 ## MODIFICATION
+- `.` will repeat the last thing you did in insert mode
 - `gc` will toggle comment but im not sure what plugin is doing this
 - `gcc` will do the same thing on cursor
 - `(ctrl + U)` will let you enter unicode characters like this silly little guy §

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png --count --delay 5
+
+#END
+
+

@@ -2,11 +2,11 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 vim.diagnostic.config({
-  virtual_text = false, -- This shows the diagnostic inline
-  signs = true, -- This shows the signs on the side bar
-  underline = false, -- Underlines the code in question
-  update_in_insert = false, -- updates the errors on insert mode
-  severity_sort = false,
+   virtual_text = false, -- This shows the diagnostic inline
+   signs = true, -- This shows the signs on the side bar
+   underline = false, -- Underlines the code in question
+   update_in_insert = true, -- updates the errors on insert mode
+   severity_sort = false,
 })
 
 -- -- Change the theme to the one in the local colors folder
@@ -20,8 +20,8 @@ opt.relativenumber = true
 opt.number = true
 
 -- tabs & indentation
-opt.tabstop = 4 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 4 -- 2 spaces for indent width (this should be the same as above)
+opt.tabstop = 3 -- 2 spaces for tabs (prettier default)
+opt.shiftwidth = 3 -- 2 spaces for indent width (this should be the same as above)
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
