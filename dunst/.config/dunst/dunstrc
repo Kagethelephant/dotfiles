@@ -361,7 +361,7 @@
     background = "#0F0F0F"
     foreground = "#A58486"
     frame_color = "#4C4C4C"
-    timeout = 0
+    timeout = 300
     override_pause_level = 60
     # Icon for notifications with critical urgency
     default_icon = alert

@@ -25,7 +25,8 @@ return {
                "cmake",  -- Cmake server
                "jsonls", -- JSON server
                "pylsp",  -- Python server
-               "tailwindcss" --tailwind server
+               "tailwindcss", --tailwind server
+               "glsl_analyzer" -- GLSL server (Opengl Shaders)
             }
          })
       end
@@ -102,8 +103,8 @@ return {
          -- Replaced standard capabilities declaration with this so we can append this setting for
          -- LSP dynamic registration, i read that this will help the LSP error speed
          local capabilities = vim.tbl_deep_extend("force",
-            vim.lsp.protocol.make_client_capabilities(),
-            require('cmp_nvim_lsp').default_capabilities()
+            vim.lsp.protocol.make_client_capabilities(), -- Broadcast diagnostic capabilities i think
+            cmp_nvim_lsp.default_capabilities() -- Broadcast CMP capabilities to lsp
          )
          capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
@@ -130,6 +131,9 @@ return {
             lspconfig.clangd.setup {
                filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
                root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+            },
+            lspconfig.glsl_analyzer.setup { -- Setup the custom extentions for GLSL
+               filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
             }
          })
       end,
