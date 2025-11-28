@@ -3,9 +3,12 @@
 ## ACCESSABILTY
 - `:set wrap!` will toggle wrap
 
+## TERMINAL
+- Ctrl+` to toggle terminal
+
 ## SELECT
 - `V` to select lines 
-- `(ctrl+v)` to select blocks "this is a test for git"
+- `(ctrl+v)` to select blocks
 
 ## MODIFICATION
 - `.` will repeat the last thing you did in insert mode
@@ -51,11 +54,13 @@
 - `o` will create a return below and enter insert mode
 - `O` will create a return above and enter insert mode
 
+- `Ctrl+w` and `hjkl` will change from one split to another (including the explorer)
 - `Ctrl+w` and `-/+` or `</>`will change the size of the current split
 - `Ctrl+w` and `=` will equalize the splits
 
 
 ## NVIM-TREE
+- `Space+e` open explorer
 - `m` to mark
 - `bd` to delete marked files
 - `r` to rename

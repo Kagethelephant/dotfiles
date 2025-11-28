@@ -67,6 +67,9 @@ only adjust the gamma. You need to use brightnessCtl to adjust brightness
 In arch its pacman instead of apt, for install `sudo pacman -S <package>`
 to update use `sudo pacman -Syu` and remove `sudo pacman -Runs`
 
+## Network Manager
+Just putting a general note in here that "NetworkManager" is what is used to connect to wifi. In the command line it is called `nmcli`. You can connect to a nework with `nmcli dev wifi connect "network" password "password"`. You can check if wifi is disabled with `nmcli radio wifi` you can enable it with `nmcli radio wifi on`. You can use `nmcli dec wifi list` to show available networks. service for `systemctl` is called `NetworkManager.service`
+
 ## Terminal
 `Ctrl + L` will clear the terminal
 `tar -zxvf <filename>` will un-compress a tar file
