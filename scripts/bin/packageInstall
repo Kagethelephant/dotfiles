@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+
+# Update package lists
+sudo pacman -Syu --noconfirm
+
+# Install packages
+sudo pacman -S --noconfirm \
+   firefox \
+   gparted \
+   less \
+   zip \
+   unzip \
+   plocate \
+   grep \
+   ripgrep \
+   r \
+   cmake \
+   sfml \
+   ttf-jetbrains-mono \
+   npm \
+   kitty \
+   neovim \
+   xorg-xrandr \
+   picom \
+   brightnessctl \
+   feh \
+   xclip \
+   scrot \
+   rofi \
+   polybar \
+   cronie \
+   dunst \
+   libnotify \
+   acpi \
+   fastfetch \
+
+#This updates database for plocate to work
+sudo updatedb
+
+

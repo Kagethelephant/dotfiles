@@ -7,7 +7,7 @@ Steps to install Arch and all the packages and stow all the dot files.
     - `iwctl` ENTER `station wlan0 get-networks` to show available networks. `exit` to exit
     - `iwctl --passphrase "password" station wlan0 connect network-ssid` to connect to a network
     - `ip addr show` to check if you were able to get an IP
-    - `archinstall` to start the installation and follow the prompts
+    - `archinstall` to start the installation and follow the prompts (use i3-wm and Ly greeter)
     - If you are installing on the entire partition you can just use the "best effort install"
     - If you are doing a dual boot you should create a new partition before starting install that you want to use for Arch
         - create a `/boot` partition that is 1GB `fat32` and a `/` partition in `ext4` format
@@ -18,6 +18,7 @@ Steps to install Arch and all the packages and stow all the dot files.
     - `nmcli radio wifi on` to turn on wifi. `nmcli device wifi list` to show networks. `sudo nmcli device wifi connect <network-ssid> password <password>` to connect
 - Use `pacman -S` to install `git`,`github-cli` and `stow`
 - Use github-cli to authenticate connection with `gh auth login` (you will have to enter the link on another device to authenticate)
+- Setup git info with `git config --global user.email "email"` and `git config --global user.name "name"`
 - Run the package installation script in the `dotfiles/scripts` folder
 - Make sure you are in the home directory and clone the dotfiles repo with `gh repo clone kagethelephant/dotfiles`
 - CD into the dotfiles folder and use `stow <folder-name>` for each of the folders
@@ -31,46 +32,50 @@ Steps to install Arch and all the packages and stow all the dot files.
         
 
 # Packages
-## Need Packages
-- Network Manager - On arch install
-- Gparted - pacman (gparted)
-- Python - pacman (python3) - UAR for specific version (python321)
-- npm - pacman (npm)
-- Firefox - pacman (firefox)
+
+## Installed manually for install
+- Network Manager - pacman (networkmanager)
 - Git - pacman (git)
-- less (needed for git graph) - pacman(less)
 - GitHub CLI - pacman (github-cli)
-- Plocate - pacman (plocate) *run `sudo updatedb` before using*
-- Grep - pacman (grep)
-- CMake - pacman (cmake)
-- LiveGrep - pacman (ripgrep)
-- Zip and Unzip - pacman (zip unzip)
-- dunst - pacman (dunst)
-- libnotify (needed for dunst) - pacman (libnotify)
-- cronie - pacman (cronie)
-- acpi (used with dunst to get battery info) - pacman (acpi)
-- Yay - UAR (check interwebs)
-- Picom - pacman (picom)
-- Xrandr - pacman (xorg-xrandr)
-- Brightness control - pacman (brightnessctl)
-- scrot (gets screenshots) - pacman (scrot)
-- feh - pacman (feh)
-- r - pacman (r)
-- libreOffice - pacman (libreoffice)
-- NeoVim - pacman (neovim)
-- jetbrains nerd font - pacman (ttf-jetbrains-mono)
-- XClip (clipboard provider needed for nvim) - pacman (xclip)
-- ClamScan (virus scanning cli)- pacman (clamav)
-- Tree (for terminal)
+- GNU Stow - pacman (stow)
+
+## Installed through script
+- Firefox - Browser
+- Gparted - Partition manager
+- less - Used to display things in the terminal (used for gitgraph)
+- Zip and Unzip - zip and unzip packages
+- Plocate - Used to find files by name in the terminal
+- Grep - Library for finding text patterns
+- LiveGrep - More effiecient grep (ripgrep)
+- r - Statistics tool
+- CMake - Used to build C based projects
+- SFML - C++ graphics library
+- jetbrains nerd font - Font I use for everythin
+- npm - Node package manager, biggest package manager (used for neovim plugins)
+- Kitty - Modern graphics accelerated terminal
+- NeoVim - Terminal text editor with lua modules
+- Xrandr - Used to modify X display settings
+- Picom - Lightweight compositor so nice window effects like shadows
+- Brightness control - Used to modify xrandr brightness settings
+- feh - Image viewer (used to set wallpaper)
+- XClip - clipboard for windows like copy and paste (also used by neovim)
+- scrot - used to get screenshots
+- Rofi - application drawer
+- Polybar - nice looking status bar with lots of config options
+- cronie - used to schedule cron jobs
+- dunst - notification deamon
+- libnotify - Sends notifications from system to notification deamon
+- acpi - collects power info from system (used for battery notification and battery bar)
+- Fast Fetch - gives system information in the terminal
+
 
 ## Optional Packages
-- Ranger - (simple CLI file manager) pacman (ranger) 
-- Ly Greeter - on arch install
-- Rofi - pacman (rofi)
-- Kitty (need to clone kitty themes) - pacman (kitty)
-- Fast Fetch - pacman (fastfetch)
-- Polybar - pacman (polybar)
-- GNU Stow - pacman (stow)
+- Yay - UAR - alternative package manager (needed for some libraries)
+- libreOffice - pacman (libreoffice) - linux version of office
+- ClamScan - pacman (clamav) - cli virus scanner
+- Tree - pacman (tree) - file tree in terminal
+- Python - pacman (python3)
+- Ranger - pacman (ranger) - file explorer in terminal
 
 
 # General Notes
