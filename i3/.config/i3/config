@@ -48,7 +48,7 @@ exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 # This scales the display so i can actually see stuff
 exec_always --no-startup-id xrandr --output eDP-1 --scale .80x.80
 # Set the background
-exec_always --no-startup-id feh --bg-fill ~/Pictures/backgrounds/bkg.jpg
+exec_always --no-startup-id feh --bg-fill ~/dotfile-resources/bkg.jpg
 
 # ----------------------------------Key Mappings------------------------------------
 # Custom keymappings for brightness

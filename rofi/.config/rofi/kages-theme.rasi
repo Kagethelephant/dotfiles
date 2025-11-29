@@ -16,7 +16,7 @@
     highlight: bold italic;
     scrollbar: true;
 
-    font: "MesloLGM Nerd Font Bold 12";
+    font: "JetBrains Mono Bold 12";
 
     /* Gruvbox dark colors */
     gruvbox-dark-bg0-hard:     #0F0F0F;
