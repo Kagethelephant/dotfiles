@@ -17,6 +17,7 @@ sudo pacman -S --noconfirm \
    r \
    cmake \
    sfml \
+   ttf-meslo-nerd \
    ttf-jetbrains-mono \
    npm \
    kitty \

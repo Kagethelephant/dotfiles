@@ -52,7 +52,8 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - r - Statistics tool
 - CMake - Used to build C based projects
 - SFML - C++ graphics library
-- jetbrains nerd font - Font I use for everythin
+- Meslo nerd font - used for UI because it has more unicode characters
+- jetbrains nerd font - Font I use for kitty (I like the icons and font better for coding)
 - npm - Node package manager, biggest package manager (used for neovim plugins)
 - Kitty - Modern graphics accelerated terminal
 - NeoVim - Terminal text editor with lua modules
