@@ -34,6 +34,10 @@ sudo pacman -S --noconfirm \
    libnotify \
    acpi \
    fastfetch \
+   dosfstools \
+   bluez \
+   bluez-utils \
+   pulseaudio-bluetooth \
 
 #This updates database for plocate to work
 sudo updatedb

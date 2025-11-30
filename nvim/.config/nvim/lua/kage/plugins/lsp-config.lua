@@ -43,10 +43,11 @@ return {
          { "folke/neodev.nvim", opts = {} },
       },
       config = function()
-         -- import lspconfig plugin
-         local lspconfig = require("lspconfig")
+         -- -- import lspconfig plugin
+         -- local lspconfig = require("lspconfig")
          -- import mason_lspconfig plugin
-         local mason_lspconfig = require("mason-lspconfig")
+         require("mason-lspconfig").setup()
+         require("mason").setup()
          -- import cmp-nvim-lsp plugin
          local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -83,11 +84,21 @@ return {
          --********* MAKE THE GIT SIGNS PRETTY ***********
 
          -- Change the Diagnostic symbols in the sign column (gutter)
-         local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-         for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-         end
+         -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+         -- for type, icon in pairs(signs) do
+         --    local hl = "DiagnosticSign" .. type
+         --    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+         -- end
+         vim.diagnostic.config({
+            signs = {
+               text = {
+                  [vim.diagnostic.severity.ERROR] = " ", -- Text for error signs
+                  [vim.diagnostic.severity.WARN]  = " ", -- Text for warning signs
+                  [vim.diagnostic.severity.INFO]  = " ", -- Text for info signs
+                  [vim.diagnostic.severity.HINT]  = "󰠠 ", -- Text for hint signs
+               }
+            }
+         })
 
 
          --********* MAKE THE LSP RECOGNISE CMAKE PATHS ***********
@@ -109,33 +120,41 @@ return {
          capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
 
-         -- default handler for installed servers
-         mason_lspconfig.setup_handlers({
+         -- -- default handler for installed servers
+         -- mason_lspconfig.setup_handlers({
 
-            -- This fixes a naming error with the tsserver
-            function(server_name)
-               if server_name == "tsserver" then
-                  server_name = "ts_ls"
-               end
+         -- -- This fixes a naming error with the tsserver
+         -- if server_name == "tsserver" then
+         --    server_name = "ts_ls"
+         -- end
 
-               -- load the server with the default capabilities defined above
-               lspconfig[server_name].setup({
-                  capabilities = capabilities,
-                  on_attach = on_attach,
-                  flags = { debounce_text_changes = 150 }, -- This is supposed to fix the slow diag icons on clangd
-               })
-
-            end,
-
-            --********* A SERVER CONFIG GOES HERE ***********
-            lspconfig.clangd.setup {
-               filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-               root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
-            },
-            lspconfig.glsl_analyzer.setup { -- Setup the custom extentions for GLSL
-               filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
-            }
+         -- load the server with the default capabilities defined above
+         vim.lsp.config("*", {
+            capabilities = capabilities,
+            flags = { debounce_text_changes = 150 }, -- This is supposed to fix the slow diag icons on clangd
          })
+
+
+         vim.lsp.config("clangd", {
+            filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+            -- root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+            root_markers = {"compile_commands.json", ".git"}
+         })
+         vim.lsp.config("glsl_analyzer", { -- Setup the custom extentions for GLSL
+            filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
+         })
+
+         vim.lsp.enable("clangd")
+         vim.lsp.enable("cmake-language-server")
+         vim.lsp.enable("glsl_analyzer")
+         vim.lsp.enable("lua-language-server")
+         vim.lsp.enable("python-lsp-server")
+         vim.lsp.enable("html-lsp")
+         vim.lsp.enable("json-lsp")
+         vim.lsp.enable("typescript-language-server")
+         vim.lsp.enable("tailwindcss-language-server")
+         vim.lsp.enable("css-lsp")
+         -- })
       end,
    }
 }
