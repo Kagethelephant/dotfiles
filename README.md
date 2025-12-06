@@ -180,7 +180,7 @@ the i3 config file launches polybar using this file to insure they are not dupli
 - `journalctl` will show you the journal entries from the system
 - `journalctl -p 3` show errors with a priority of 3 or greater
 - `journalctl -b -p 3` filters for errors during boot
-- The journal is cleared on reboot by default but you can modify `/etc/systemd/journald.conf` and edit storage to `#Storage=persistent`
+- The journal is cleared on reboot by default but you can modify `/etc/systemd/journald.conf` and edit storage to `#Storage=persistent
 
 ### Surface 7 freezing issue
 If you find an error saying that the random seed file is world accessable you might have to change the permissions for the boot partition in the `/etc/fstab` file. Change values so `fmask=0137` and `dmask=0027`

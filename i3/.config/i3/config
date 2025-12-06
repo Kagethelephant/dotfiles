@@ -68,7 +68,7 @@ gaps inner 10
 # default_floating_border pixel 0
 
 # class                 border  bground text    indicator child_border
-client.focused          #111111 #111111 #8F8AAC #111111   #111111
+client.focused          #111111 #111111 #8F8AAC #4C4C4C   #4C4C4C
 client.focused_inactive #111111 #111111 #4C4C4C #111111   #111111
 client.unfocused        #111111 #111111 #4C4C4C #111111   #111111
 client.urgent           #111111 #8F8AAC #FFFFFF #8F8AAC   #8F8AAC
