@@ -29,6 +29,11 @@ Steps to install Arch, all necessary packages and stow all the dot files.
     - This will move the existing files into the repo. to keep the files from get use `git restore .` to return restore the git files
 - `sudo systemctl enable cronie.service` and `sudo systemctl start NetworkManager.service` to start cronie for notification cron job
 - `crontab -e` to edit cronjobs and add `*/5 * * * * /home/kage/bin/batteryNotify` to the file and save. Battery notifiacation should show up now
+- if this is going to be used on a microsoft surface then you should turn off the suspend on lid closed (and change power button to suspend)
+    - Modify the `/etc/systemd/logind.conf` file and and change the following
+        - `HandlePowerKey=suspend`
+        - `HandleLidSwitch=ignore`
+        - `HandleLidSwitchExternalPower=ignore`
 - Reboot into i3 and everything should be setup!
 
 
@@ -109,6 +114,8 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - `ctrl+tab` next tab
 - `ctrl+shift+tab` last tab
 - `ctrl+w` close current tab
+- `ctrl+=` zoom in
+- `ctrl+-` zoom out
 
 ## Terminal
 - `ctrl+shift+c` copy
@@ -171,7 +178,17 @@ the i3 config file launches polybar using this file to insure they are not dupli
 
 ## Troubleshooting
 - `journalctl` will show you the journal entries from the system
-- `journalctl -b -p 3` filters for errors
-- The journal is cleared on reboot by default but you can make a `/var/log/journal` folder for persistance
+- `journalctl -p 3` show errors with a priority of 3 or greater
+- `journalctl -b -p 3` filters for errors during boot
+- The journal is cleared on reboot by default but you can modify `/etc/systemd/journald.conf` and edit storage to `#Storage=persistent`
 
+### Surface 7 freezing issue
 If you find an error saying that the random seed file is world accessable you might have to change the permissions for the boot partition in the `/etc/fstab` file. Change values so `fmask=0137` and `dmask=0027`
+
+On the microsoft surface devices, closing the lid might result in a `dptf_power INT3407:00: Unsupported event [0x82]` error in the journal. This will likely freeze the OS and the machine will have to be manually powered down. I could not find a fix for this so i just changed the arch power settings to prevent suspend on lid closed and change the power button to suspend instead of power down.
+- To change power settings open `/etc/systemd/logind.conf` and edit the following
+    - HandlePowerKey=suspend
+    - HandleLidSwitch=ignore
+    - HandleLidSwitchExternalPower=ignore
+
+A combination of this and adding `exec --no-startup-id xset -dpms force off i` and `exec --no-startup-id xset s off` to the i3 config file to turn off display power management and screensaver for ACPI, seemed to fix the freezing issue on lid closed for the surface 7.

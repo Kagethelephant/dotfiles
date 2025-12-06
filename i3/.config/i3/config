@@ -36,7 +36,9 @@ exec --no-startup-id dex --autostart --environment i3
 
 # ----------------------------------Startup Apps------------------------------------
 # Turn off the power saving stuff because it crashes i3 on sleep
-exec --no-startup-id xset -dpms
+# Force display power management off
+exec --no-startup-id xset -dpms force off
+# turn off screensaver
 exec --no-startup-id xset s off
 
 # Start the comositor
