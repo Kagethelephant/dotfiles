@@ -43,9 +43,7 @@ return {
          { "folke/neodev.nvim", opts = {} },
       },
       config = function()
-         -- -- import lspconfig plugin
-         -- local lspconfig = require("lspconfig")
-         -- import mason_lspconfig plugin
+         -- import mason and mason_lspconfig plugin
          require("mason-lspconfig").setup()
          require("mason").setup()
          -- import cmp-nvim-lsp plugin
@@ -58,7 +56,6 @@ return {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function()
 
-               -- set keybinds
                vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", { desc = 'Show References' }) -- show definition, references
 
                vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = 'Code Actions' }) -- see available code actions, in visual mode will apply to selection
@@ -81,14 +78,8 @@ return {
 
 
 
-         --********* MAKE THE GIT SIGNS PRETTY ***********
+         --********* MAKE THE DIAGNOSTIC SIGNS PRETTY ***********
 
-         -- Change the Diagnostic symbols in the sign column (gutter)
-         -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-         -- for type, icon in pairs(signs) do
-         --    local hl = "DiagnosticSign" .. type
-         --    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-         -- end
          vim.diagnostic.config({
             signs = {
                text = {
@@ -101,49 +92,32 @@ return {
          })
 
 
-         --********* MAKE THE LSP RECOGNISE CMAKE PATHS ***********
-
-         -- This will configure the LSP to look for the compile_commands.json file created by cmake. This will
-         -- allow the lsp to recognize the include paths defined in cmake. cmake has to be configured to generate this file
-
          --********* SETUP SERVERS ***********
-
-         -- used to enable autocompletion (assign to every lsp server config)
-         -- local capabilities = cmp_nvim_lsp.default_capabilities()
-
-         -- Replaced standard capabilities declaration with this so we can append this setting for
-         -- LSP dynamic registration, i read that this will help the LSP error speed
+         -- Make sure the servers know of our lsp capabilities
          local capabilities = vim.tbl_deep_extend("force",
             vim.lsp.protocol.make_client_capabilities(), -- Broadcast diagnostic capabilities i think
             cmp_nvim_lsp.default_capabilities() -- Broadcast CMP capabilities to lsp
          )
          capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
-
-         -- -- default handler for installed servers
-         -- mason_lspconfig.setup_handlers({
-
-         -- -- This fixes a naming error with the tsserver
-         -- if server_name == "tsserver" then
-         --    server_name = "ts_ls"
-         -- end
-
-         -- load the server with the default capabilities defined above
+         -- load the every server with the default capabilities defined above
          vim.lsp.config("*", {
             capabilities = capabilities,
-            flags = { debounce_text_changes = 150 }, -- This is supposed to fix the slow diag icons on clangd
          })
 
 
          vim.lsp.config("clangd", {
             filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-            -- root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
-            root_markers = {"compile_commands.json", ".git"}
+            -- Make the LSP look for CMake root directory
+            root_markers = {"compile_commands.json", ".git"},
+            -- This is supposed to fix the slow diag icons on clangd
+            flags = { debounce_text_changes = 150 }
          })
          vim.lsp.config("glsl_analyzer", { -- Setup the custom extentions for GLSL
             filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
          })
 
+         -- Enable all of the servers
          vim.lsp.enable("clangd")
          vim.lsp.enable("cmake-language-server")
          vim.lsp.enable("glsl_analyzer")

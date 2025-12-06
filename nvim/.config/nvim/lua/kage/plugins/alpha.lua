@@ -6,7 +6,6 @@ return {
       local dashboard = require("alpha.themes.dashboard")
 
       -- This is obviously where you configure the splash image
-      -- for the nvim welcom screen
       dashboard.section.header.val = {
          [[                                                                       ]],
          [[                                                                       ]],

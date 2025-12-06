@@ -38,9 +38,10 @@ opt.cursorline = true -- highlight the current cursor line
 -- appearance
 
 -- turn on termguicolors for complete color range (required for a lot of colorschemes to work)
--- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift (this is where LSP warning icons show up)
+
+-- show sign column so that text doesn't shift (this is where LSP warning icons show up)
+opt.signcolumn = "yes"
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position

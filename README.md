@@ -108,6 +108,7 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - `ctrl+n` new window
 - `ctrl+tab` next tab
 - `ctrl+shift+tab` last tab
+- `ctrl+w` close current tab
 
 ## Terminal
 - `ctrl+shift+c` copy
@@ -167,3 +168,10 @@ use `cat path/to/isofile > dev/disk/by-id/id-of-usb` to install the installation
 ## Polybar
 Polybar needs a special launch.rc (~/.config/polybar/launch.rc) file to ensure there is only one instance launched.
 the i3 config file launches polybar using this file to insure they are not duplicated.
+
+## Troubleshooting
+- `journalctl` will show you the journal entries from the system
+- `journalctl -b -p 3` filters for errors
+- The journal is cleared on reboot by default but you can make a `/var/log/journal` folder for persistance
+
+If you find an error saying that the random seed file is world accessable you might have to change the permissions for the boot partition in the `/etc/fstab` file. Change values so `fmask=0137` and `dmask=0027`
