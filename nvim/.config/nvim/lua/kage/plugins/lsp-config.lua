@@ -22,7 +22,7 @@ return {
                "ts_ls", -- Javascript and Typescript server
                "html",  -- HTML server
                "cssls", --CSS sercver
-               "cmake",  -- Cmake server
+               "neocmake",  -- Cmake server
                "jsonls", -- JSON server
                "pylsp",  -- Python server
                "tailwindcss", --tailwind server
@@ -119,15 +119,16 @@ return {
 
          -- Enable all of the servers
          vim.lsp.enable("clangd")
-         vim.lsp.enable("cmake-language-server")
          vim.lsp.enable("glsl_analyzer")
-         vim.lsp.enable("lua-language-server")
-         vim.lsp.enable("python-lsp-server")
-         vim.lsp.enable("html-lsp")
-         vim.lsp.enable("json-lsp")
-         vim.lsp.enable("typescript-language-server")
-         vim.lsp.enable("tailwindcss-language-server")
-         vim.lsp.enable("css-lsp")
+         vim.lsp.enable("neocmake")
+         vim.lsp.enable("lua_ls")
+         vim.lsp.enable("bashls")
+         vim.lsp.enable("pylsp")
+         vim.lsp.enable("html")
+         vim.lsp.enable("jsonls")
+         vim.lsp.enable("ts_ls")
+         vim.lsp.enable("tailwindcss")
+         vim.lsp.enable("cssls")
          -- })
       end,
    }

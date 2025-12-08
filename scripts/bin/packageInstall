@@ -16,6 +16,8 @@ sudo pacman -S --noconfirm \
    ripgrep \
    r \
    cmake \
+   make \
+   base-devel \
    sfml \
    ttf-meslo-nerd \
    ttf-jetbrains-mono \

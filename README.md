@@ -56,7 +56,9 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - LiveGrep - More effiecient grep (ripgrep)
 - r - Statistics tool
 - CMake - Used to build C based projects
+- make - cmake uses this to create the make files
 - SFML - C++ graphics library
+- base-devel - includes GCC, G++ and other essential packages for comiler software
 - Meslo nerd font - used for UI because it has more unicode characters
 - jetbrains nerd font - Font I use for kitty (I like the icons and font better for coding)
 - npm - Node package manager, biggest package manager (used for neovim plugins)
@@ -106,6 +108,7 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - `Win+shift+q` quit focused window
 
 ## Firefox
+- To get rid of the anoying "could not restore session" message, type `about:config` into the search bar and change `browser.sessionstore.resume_from_crash` to true
 - `ctrl+k` cursor to search bar
 - `alt+left` back
 - `alt+right` forward
