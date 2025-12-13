@@ -18,6 +18,7 @@ return {
             ensure_installed = {
                "bashls", -- Bash server
                "lua_ls", -- Lua server
+               "marksman", -- Markdown lsp
                "clangd", -- C++ server
                "ts_ls", -- Javascript and Typescript server
                "html",  -- HTML server
@@ -33,6 +34,7 @@ return {
    },
 
 
+
    -- //////////////////// NVIM-LSPCONFIG /////////////////////////
    { -- Calling setup for the given LSP here will link the LSP to nvim
       "neovim/nvim-lspconfig",
@@ -43,12 +45,6 @@ return {
          { "folke/neodev.nvim", opts = {} },
       },
       config = function()
-         -- import mason and mason_lspconfig plugin
-         require("mason-lspconfig").setup()
-         require("mason").setup()
-         -- import cmp-nvim-lsp plugin
-         local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 
          --********* SET KEYBINDINGS ***********
 
@@ -56,9 +52,11 @@ return {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function()
 
+               vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = 'Go to Definition', noremap = true, silent = true })
+
                vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", { desc = 'Show References' }) -- show definition, references
 
-               vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = 'Code Actions' }) -- see available code actions, in visual mode will apply to selection
+               vim.keymap.set({"n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = 'Code Actions' }) -- see available code actions, in visual mode will apply to selection
 
                vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = 'Smart Rename' }) -- smart rename
 
@@ -77,7 +75,6 @@ return {
 
 
 
-
          --********* MAKE THE DIAGNOSTIC SIGNS PRETTY ***********
 
          vim.diagnostic.config({
@@ -93,19 +90,23 @@ return {
 
 
          --********* SETUP SERVERS ***********
-         -- Make sure the servers know of our lsp capabilities
-         local capabilities = vim.tbl_deep_extend("force",
-            vim.lsp.protocol.make_client_capabilities(), -- Broadcast diagnostic capabilities i think
-            cmp_nvim_lsp.default_capabilities() -- Broadcast CMP capabilities to lsp
-         )
-         capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
-         -- load the every server with the default capabilities defined above
+         -- -- Define the capabilities we will brodcast to the language servers (like auto completion)
+         -- local capabilities = vim.tbl_deep_extend("force",
+         --    vim.lsp.protocol.make_client_capabilities(), -- Broadcast diagnostic capabilities i think
+         --    require("cmp_nvim_lsp").default_capabilities() -- Broadcast CMP capabilities to lsp
+         -- )
+         -- capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
+         -- Get out autocompletion capabilities (seems to work the same as the above code)
+         local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+         -- advertise to every server the default capabilities defined above
          vim.lsp.config("*", {
             capabilities = capabilities,
          })
 
-
+         -- Configure C++ language server for special setup
          vim.lsp.config("clangd", {
             filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
             -- Make the LSP look for CMake root directory
@@ -113,6 +114,8 @@ return {
             -- This is supposed to fix the slow diag icons on clangd
             flags = { debounce_text_changes = 150 }
          })
+
+         -- Configure the OpenGL server for special setup
          vim.lsp.config("glsl_analyzer", { -- Setup the custom extentions for GLSL
             filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
          })
@@ -121,6 +124,7 @@ return {
          vim.lsp.enable("clangd")
          vim.lsp.enable("glsl_analyzer")
          vim.lsp.enable("neocmake")
+         vim.lsp.enable("marksman")
          vim.lsp.enable("lua_ls")
          vim.lsp.enable("bashls")
          vim.lsp.enable("pylsp")
@@ -129,7 +133,6 @@ return {
          vim.lsp.enable("ts_ls")
          vim.lsp.enable("tailwindcss")
          vim.lsp.enable("cssls")
-         -- })
       end,
    }
 }

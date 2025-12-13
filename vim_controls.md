@@ -1,18 +1,25 @@
 # VIM COMMANDS
 
-## ACCESSABILTY
+## ACCESSIBILITY
 - `:set wrap!` will toggle wrap
+- `<space>+w` will toggle wrap (added keymap)
 
 ## TERMINAL
 - Ctrl+` to toggle terminal
 
 ## SELECT
 - `V` to select lines 
-- `(ctrl+v)` to select blocks
+- `ctrl+v` to select blocks
+- `ctrl+l` next parameter when filling out autocompletion function
+- `ctrl+j` last parameter when filling out autocompletion function
 
 ## MODIFICATION
+- `zg` add spelling mistake under cursor to the dictionary
+- `zw` remove word under the cursor from the dictionary
+- `]s` next spelling mistake
+- `[s` last spelling mistake
 - `.` will repeat the last thing you did in insert mode
-- `gc` will toggle comment but im not sure what plugin is doing this
+- `gc` will toggle comment but I'm not sure what plugin is doing this
 - `gcc` will do the same thing on cursor
 - `(ctrl + U)` will let you enter unicode characters like this silly little guy §
 - `(U)` will UNDO and 
@@ -31,15 +38,15 @@
 - `(" + *,+,1,2,3...)` will reference a register to copy and paste from using the above actions (+ = clipboard)
 
 ## NAVIGATION
-- `b` to skip to begining of word
+- `b` to skip to beginning of word
 - `e` to skip to end of word
 
 - `i` will insert before the cursor
 - `a` will insert after the cursor
-- `I` insert at the begining of the line
+- `I` insert at the beginning of the line
 - `A` insert at the end of the line
 
-- `0` will place the cursor at the begining of the line
+- `0` will place the cursor at the beginning of the line
 - `$` will place the cursor at the end of the line
 
 - `(ctrl + f)` will skip forward half a page
@@ -67,7 +74,7 @@
 - `d` to delete
 - `bmv` to move marked items to cursor location
 - `Ctrl+x` will open the document in a horizontal split
-- `Ctrl+v` will open the document in a verticle split
+- `Ctrl+v` will open the document in a vertical split
 - `Ctrl+t` will open the document in a new tab
 - `H` will toggle show dotfiles
 - `I` will toggle gitignore files

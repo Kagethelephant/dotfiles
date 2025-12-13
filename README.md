@@ -26,11 +26,11 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - Make sure you are in the home directory and clone the dotfiles repo with `gh repo clone kagethelephant/dotfiles`
 - CD into the dotfiles folder and use `stow <folder-name>` for each of the folders
     - you might get an error that there are already files in the directory. use `stow <floder-name> --adopt` to replace those files with symlinks.
-    - This will move the existing files into the repo. to keep the files from get use `git restore .` to return restore the git files
+    - This will move the existing files into the repo. To keep the files from get use `git restore .` to return restore the git files
 - `sudo systemctl enable cronie.service` and `sudo systemctl start NetworkManager.service` to start cronie for notification cron job
 - `crontab -e` to edit cronjobs and add `*/5 * * * * /home/kage/bin/batteryNotify` to the file and save. Battery notifiacation should show up now
 - if this is going to be used on a microsoft surface then you should turn off the suspend on lid closed (and change power button to suspend)
-    - Modify the `/etc/systemd/logind.conf` file and and change the following
+    - Modify the `/etc/systemd/logind.conf` file and change the following
         - `HandlePowerKey=suspend`
         - `HandleLidSwitch=ignore`
         - `HandleLidSwitchExternalPower=ignore`
@@ -53,12 +53,12 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - Zip and Unzip - zip and unzip packages
 - Plocate - Used to find files by name in the terminal
 - Grep - Library for finding text patterns
-- LiveGrep - More effiecient grep (ripgrep)
+- LiveGrep - More efficient grep (ripgrep)
 - r - Statistics tool
 - CMake - Used to build C based projects
 - make - cmake uses this to create the make files
 - SFML - C++ graphics library
-- base-devel - includes GCC, G++ and other essential packages for comiler software
+- base-devel - includes GCC, G++ and other essential packages for compiler software
 - Meslo nerd font - used for UI because it has more unicode characters
 - jetbrains nerd font - Font I use for kitty (I like the icons and font better for coding)
 - npm - Node package manager, biggest package manager (used for neovim plugins)
@@ -73,8 +73,8 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - Rofi - application drawer
 - Polybar - nice looking status bar with lots of config options
 - cronie - used to schedule cron jobs
-- dunst - notification deamon
-- libnotify - Sends notifications from system to notification deamon
+- dunst - notification daemon
+- libnotify - Sends notifications from system to notification daemon
 - acpi - collects power info from system (used for battery notification and battery bar)
 - Fast Fetch - gives system information in the terminal
 - dosfstools - can create and check MS DOS FAT filesystems
@@ -87,6 +87,9 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - libreOffice - pacman (libreoffice) - linux version of office
 - ClamScan - pacman (clamav) - cli virus scanner
 - Tree - pacman (tree) - file tree in terminal
+- VLC - pacman (vlc) - mediaplayer
+- VLC ffmpeg plugin - pacman (vlc-plugin-ffmpeg) - all codecs for VLC (encoder / decoder)
+- ffmpeg - pacman (ffmpeg) - screen recorder
 - Python - pacman (python3)
 - Ranger - pacman (ranger) - file explorer in terminal
 
@@ -108,7 +111,7 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - `Win+shift+q` quit focused window
 
 ## Firefox
-- To get rid of the anoying "could not restore session" message, type `about:config` into the search bar and change `browser.sessionstore.resume_from_crash` to true
+- To get rid of the annoying "could not restore session" message, type `about:config` into the search bar and change `browser.sessionstore.resume_from_crash` to true
 - `ctrl+k` cursor to search bar
 - `alt+left` back
 - `alt+right` forward
@@ -137,9 +140,9 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - `rm -r <directory>` remove recursive (removes everything in directory)
 - `touch <filename.ext>` create file
 - `command | grep <number-of-outputs> <text-to-serch>` filters results of command by text match
-- `sudo pacman -S <package>` to install pacman package
-- `sudo pacman -Syu` system update (including packages)
-- `sudo pacman -Runs <package>` remove the given package
+- `pacman -Syu` system update. -S for install. u for upgrade packages. y to update local cache
+- `pacman -S <package>` - install package
+- `pacman -Rns <package>`- remove package. -R for remove. n to remove config files. s to remove unneeded dependencies recursively
 - `tar -zxvf <filename>` will un-compress a tar file
 - `ln -s <sourcedir> <targetdir` will make a symlink
 - `sudo systemctl enable <service>` enable service
@@ -155,13 +158,15 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - `git push` push commits
 - `git pull` pull master
 - `git restore .` restore all changes
+- `git push --set-upstream origin "branch name"` will initialize the upstream for that branch
+- `git rebase -i "commit hash"` will combine the commits from the current to the provided commit
 
 ## Network
 - `nmcli radio wifi on` to turn on wifi
 - `nmcli device wifi list` to show networks
 - `nmcli device wifi connect <network-ssid> password <password>` to connect to wifi
 - `bluetoothctl` start bluez-utils
-    - `power on` turn on bluetooth radio
+    - `power on` turn on Bluetooth radio
     - `scan on` turn on bluetooth scanning
     - `agent off` delete the active agent (determines how pairing is handled)
     - `agent NoOutputNoInput` this agent will allow you to bypass passcode for devices that do not input passcodes
@@ -170,8 +175,12 @@ Steps to install Arch, all necessary packages and stow all the dot files.
     - `connect <MAC-ADDR>` connects BT device
     - `remove <MAC-ADDR>` unpair device
 
+## ffmpeg screen record
+- `ffmpeg -f x11grab -i :0 output.mp4` record screen
+- `q` or `ctrl+c` to stop recording
 
-### Create bootable meadia
+
+### Create bootable media
 use `sudo fdisk -l` to find your usb, `sudo umount /dev/drive` and `sudo mkfs.vfat /dev/drive` to format the drive (you will need `dosfstools`)
 use `cat path/to/isofile > dev/disk/by-id/id-of-usb` to install the installation media
 
@@ -186,7 +195,7 @@ the i3 config file launches polybar using this file to insure they are not dupli
 - The journal is cleared on reboot by default but you can modify `/etc/systemd/journald.conf` and edit storage to `#Storage=persistent
 
 ### Surface 7 freezing issue
-If you find an error saying that the random seed file is world accessable you might have to change the permissions for the boot partition in the `/etc/fstab` file. Change values so `fmask=0137` and `dmask=0027`
+If you find an error saying that the random seed file is world accessible you might have to change the permissions for the boot partition in the `/etc/fstab` file. Change values so `fmask=0137` and `dmask=0027`
 
 On the microsoft surface devices, closing the lid might result in a `dptf_power INT3407:00: Unsupported event [0x82]` error in the journal. This will likely freeze the OS and the machine will have to be manually powered down. I could not find a fix for this so i just changed the arch power settings to prevent suspend on lid closed and change the power button to suspend instead of power down.
 - To change power settings open `/etc/systemd/logind.conf` and edit the following

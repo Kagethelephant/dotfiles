@@ -41,6 +41,7 @@ exec --no-startup-id xset -dpms force off
 # turn off screensaver
 exec --no-startup-id xset s off
 
+
 # Start the comositor
 exec_always --no-startup-id picom
 # This starts up polybar

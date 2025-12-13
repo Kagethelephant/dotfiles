@@ -8,7 +8,7 @@ return {
       -- This sets the relitive number on the left and the width
       nvimtree.setup({
          view = {
-            width = 30,
+            width = 38,
             relativenumber = true,
          }
       })

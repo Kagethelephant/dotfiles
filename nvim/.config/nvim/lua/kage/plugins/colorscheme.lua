@@ -6,18 +6,20 @@
 
 return {
    {
+      -- I have been using base16 themes exclusively because they also match the theme with lualine
+      -- you can preview themes with ":Telescope colorschemes" or shortcut "<space>ft"
       "tinted-theming/tinted-vim",
       priority = 1000,
 
       config = function ()
-         -- local theme = "base16-ia-dark"
-         -- local theme = "base16-tomorrow-night"
-         -- local theme = "base16-default-dark"
-         -- local theme = "base16-everforest-dark-hard"
-         -- local theme = "base16-classic-dark"
-         -- local theme = "base16-brushtrees"
-         -- local theme = "base16-ashes"
-         local theme = "base16-mountain"
+         -- local theme = "base16-oceanicnext" -- Medium, High contrast, very colorful
+         -- local theme = "base16-gruvbox-light-medium" --Light, medium contrast, muted colors
+         -- local theme = "base16-oxocarbon-light" -- Very Light, medium contrast, bright colors
+         -- local theme = "base16-everforest-dark-medium" --Medium light, medium contrast, bright soft colors
+         -- local theme = "base16-default-dark" --Medium Dark, medium contrast, bright colors
+         -- local theme = "base16-kanagawa-dragon" -- Very Dark, high contrast, muted colors
+         -- local theme = "base16-ashes" -- Medium, high contrast, muted colors
+         local theme = "base16-mountain" -- Darkest, low contrast, muted colors
          vim.o.background = "dark"
          vim.cmd.colorscheme(theme)
       end

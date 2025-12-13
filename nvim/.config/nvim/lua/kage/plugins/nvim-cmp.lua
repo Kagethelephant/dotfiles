@@ -1,7 +1,11 @@
 return {
+   -- //////////////////// LINKS CMP TO LSP ///////////////////////// 
    {
       "hrsh7th/cmp-nvim-lsp"
    },
+
+   -- //////////////////// SNIPPET SERVER ///////////////////////// 
+   -- This handles the controls for completing parameters, in autocompleted functions
    {
       "L3MON4D3/LuaSnip",
       dependencies = {
@@ -9,6 +13,15 @@ return {
          "rafamadriz/friendly-snippets",
       },
    },
+
+   -- -- //////////////////// SIGNATURE HELPER FOR NVIM-CMP ///////////////////////// 
+   -- {
+   --    "hrsh7th/cmp-nvim-lsp-signature-help",
+   --    event = "VeryLazy",
+   --    requires = "hrsh7th/nvim-cmp",
+   -- },
+
+   -- //////////////////// NVIM-CMP ///////////////////////// 
    {
       "hrsh7th/nvim-cmp",
       config = function()
@@ -40,17 +53,26 @@ return {
             }),
             sources = cmp.config.sources({
 
-               {-- ******** THIS FILTERS OUT TEXT SUGGESTIONS **********
+
+               {-- ******** FILTERS OUT TEXT SUGGESTIONS **********
                   name = "nvim_lsp",
                   entry_filter = function(entry)
                      return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
                   end
                },
 
-               -- ************ THIS SHOWS FILE PATHS *************
+               -- ************ FILE PATHS *************
                { name = "path"}, -- 
 
+               -- ************ SOURCE FOR DOXYGEN SIGNATURES *************
+               -- { name = 'nvim_lsp_signature_help' },
             }),
+
+
+            -- -- ************ ENABLES DOXYGEN SIGNATURES *************
+            -- signature = {
+            --    enabled = true, -- Enables experimental signature help support if needed
+            -- },
          })
       end,
    },

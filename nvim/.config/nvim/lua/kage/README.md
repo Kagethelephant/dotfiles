@@ -9,7 +9,7 @@ Most of the plugins installed will be commented pretty well so open the each of 
 This is just a nice looking splash screen for when you open up NVIM
 
 ### Autopairs
-This will autclose the parenthesis and whatnot
+This will auto-close the parenthesis and whatnot
 
 ### Cmake
 This just includes some functions for cmake to make configuring and building cmake easier
@@ -18,7 +18,7 @@ This just includes some functions for cmake to make configuring and building cma
 This will create little color swatches from color codes in most languages
 
 ### Colorscheme
-This has some colorschemes imported from github. I am importing multiple themes and only setting one, This way i can select the themes with the theme selecter build into NVIM and decide what one i want to use as the default
+This has some color-schemes imported from github. I am importing multiple themes and only setting one, This way i can select the themes with the theme selecter build into NVIM and decide what one i want to use as the default
 
 ### Comment
 This would normally enable commenting but NVIM has this feature by default now. This is still used for complex commenting in JSX though. The code was coppied and pasted so all of the config might not be necessary
@@ -27,10 +27,10 @@ This would normally enable commenting but NVIM has this feature by default now. 
 This will give you git indicators in the left column next to the line number
 
 ### Indent blackline
-This will give you a verticle line to visualise the indent scope
+This will give you a vertical line to visualise the indent scope
 
 ### lsp-config
-This contains the setup for mason LSPs and the the built in NVIM-LSP to display the lsp warnings and errors
+This contains the setup for mason LSPs and the built in NVIM-LSP to display the lsp warnings and errors
 
 ### LuaLine
 This changes the status bar at the bottom to look better (can be configured to do cool stuff)
