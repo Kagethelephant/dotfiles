@@ -2,7 +2,6 @@ return {
    "nvim-treesitter/nvim-treesitter",
    event = { "BufReadPre", "BufNewFile" },
    build = ":TSUpdate",
-   -- dependencies = {"windwp/nvim-ts-autotag",}, -- This is so treesitter can give us autoclosing
 
    config = function()
       -- grab a handle on the treesitter plugin
@@ -11,11 +10,12 @@ return {
       -- configure treesitter
       treesitter.setup({
          -- enable syntax highlighting
-         highlight = {enable = true,},
+         highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = true
+         },
          -- enable indentation
          indent = { enable = true },
-         -- enable autotagging (w/ nvim-ts-autotag plugin)
-         -- autotag = { enable = true },
          -- ensure these language parsers are installed
          ensure_installed = {
             "json",
@@ -28,6 +28,7 @@ return {
             "prisma",
             "markdown",
             "markdown_inline",
+            "doxygen",
             "svelte",
             "graphql",
             "bash",
@@ -39,7 +40,10 @@ return {
             "vimdoc",
             "c",
             "cpp",
+            "comment"
          },
+         auto_install = true,
+
          -- You can add some internal keymappings here for navigating nodes (see documentation)
       })
 

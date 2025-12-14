@@ -108,11 +108,10 @@ return {
 
          -- Configure C++ language server for special setup
          vim.lsp.config("clangd", {
-            filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
             -- Make the LSP look for CMake root directory
             root_markers = {"compile_commands.json", ".git"},
             -- This is supposed to fix the slow diag icons on clangd
-            flags = { debounce_text_changes = 150 }
+            flags = { debounce_text_changes = 150 },
          })
 
          -- Configure the OpenGL server for special setup

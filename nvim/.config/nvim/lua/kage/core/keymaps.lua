@@ -19,3 +19,5 @@ keymap.set("n", "<leader>w", "<cmd>set wrap! %<CR>", { desc = "Toggle text wrap"
 
 -- Diferent keybinding for normal mode in terminal thats more natural
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+
+vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', { noremap = true, silent = true })

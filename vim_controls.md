@@ -3,9 +3,12 @@
 ## ACCESSIBILITY
 - `:set wrap!` will toggle wrap
 - `<space>+w` will toggle wrap (added keymap)
+- `<space>+ft` use telescope to preview themes
+- `K` Shows the signature / documentation for the function under the cursor
+- `Ctrl+k` toggle show lsp help (in insert mode)
 
 ## TERMINAL
-- Ctrl+` to toggle terminal
+- `Ctrl+~` to toggle terminal
 
 ## SELECT
 - `V` to select lines 
@@ -38,6 +41,7 @@
 - `(" + *,+,1,2,3...)` will reference a register to copy and paste from using the above actions (+ = clipboard)
 
 ## NAVIGATION
+- `gd` go to function definition
 - `b` to skip to beginning of word
 - `e` to skip to end of word
 
@@ -64,6 +68,8 @@
 - `Ctrl+w` and `hjkl` will change from one split to another (including the explorer)
 - `Ctrl+w` and `-/+` or `</>`will change the size of the current split
 - `Ctrl+w` and `=` will equalize the splits
+- `<space>m` will open treesitter inspect tree
+    -`I` will toggle show language in inspect tree
 
 
 ## NVIM-TREE
