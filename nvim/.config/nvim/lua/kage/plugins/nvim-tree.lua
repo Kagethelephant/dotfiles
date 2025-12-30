@@ -10,6 +10,13 @@ return {
          view = {
             width = 38,
             relativenumber = true,
+         },
+         filters = {
+            dotfiles = false,
+         },
+         git = {
+            enable = true,
+            ignore = false,
          }
       })
 

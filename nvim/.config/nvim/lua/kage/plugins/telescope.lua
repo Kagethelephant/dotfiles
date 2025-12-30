@@ -11,9 +11,7 @@ return {
       {"nvim-telescope/telescope-ui-select.nvim"}
    },
    config = function()
-      -- This is where we include the modules we will be fucking with
       local telescope = require("telescope")
-      local actions = require("telescope.actions")
 
       telescope.setup({
          pickers = {

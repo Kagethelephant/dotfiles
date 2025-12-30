@@ -28,7 +28,7 @@ return {
             "prisma",
             "markdown",
             "markdown_inline",
-            "doxygen",
+            -- "doxygen",
             "svelte",
             "graphql",
             "bash",

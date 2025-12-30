@@ -147,6 +147,7 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - `ln -s <sourcedir> <targetdir` will make a symlink
 - `sudo systemctl enable <service>` enable service
 - `sudo systemctl start <service>` start service
+- `cmod <u,g,o,a><+,-><rwx> <filename>` change permissions for user, group, other, or all by adding, or removing read, write or execute
 
 ## GIT
 - `gh auth login` to authenticate github
@@ -158,8 +159,18 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - `git push` push commits
 - `git pull` pull master
 - `git restore .` restore all changes
-- `git push --set-upstream origin "branch name"` will initialize the upstream for that branch
+- `git push --set-upstream origin "branch name"` will initialize the upstream for that branch (usually for first push on local repo)
 - `git rebase -i "commit hash"` will combine the commits from the current to the provided commit
+- `git stash` saves local changes as a stash and reverts directory back to current HEAD (does not stash new files by default)
+- `git stash push -m 'message'` creates new stash with message to make it easier to identify when there are multiple stashes
+- `git stash list` lists all the stashes
+- `git stash apply` reapplies the last stash
+- `git stash apply stash@{n}` reapplies the stash identified by `n`
+- `git stash pop` applies the last stash and removes it
+- `git stash clear` removes all stashes
+- `git clone --recurse-submodules <repo>` Clone the repo and all of its submodules
+- `git submodule init` clone all the submodules for this repo if you forgot to clone it recursively before
+- `git submodule update` update all of the submodules
 
 ## Network
 - `nmcli radio wifi on` to turn on wifi
@@ -179,21 +190,22 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 - `ffmpeg -f x11grab -i :0 output.mp4` record screen
 - `q` or `ctrl+c` to stop recording
 
-
-### Create bootable media
+## Create bootable media
 use `sudo fdisk -l` to find your usb, `sudo umount /dev/drive` and `sudo mkfs.vfat /dev/drive` to format the drive (you will need `dosfstools`)
 use `cat path/to/isofile > dev/disk/by-id/id-of-usb` to install the installation media
 
 ## Polybar
 Polybar needs a special launch.rc (~/.config/polybar/launch.rc) file to ensure there is only one instance launched.
-the i3 config file launches polybar using this file to insure they are not duplicated.
+The i3 config file launches polybar using this file to insure they are not duplicated.
 
 ## Troubleshooting
 - `journalctl` will show you the journal entries from the system
 - `journalctl -p 3` show errors with a priority of 3 or greater
 - `journalctl -b -p 3` filters for errors during boot
-- The journal is cleared on reboot by default but you can modify `/etc/systemd/journald.conf` and edit storage to `#Storage=persistent
+- The journal is cleared on reboot by default but you can modify `/etc/systemd/journald.conf` and edit storage to `#Storage=persistent`
 
+## GH auth login
+Sometimes git does not have proper access to the .config/gh/hosts.yml and config.yml. This will result in gh auth login going through the process and getting a success message in the browser but hanging in the terminal like its still waiting for authorization. You can use `chmod` to fix these permissions.
 ### Surface 7 freezing issue
 If you find an error saying that the random seed file is world accessible you might have to change the permissions for the boot partition in the `/etc/fstab` file. Change values so `fmask=0137` and `dmask=0027`
 
@@ -203,4 +215,4 @@ On the microsoft surface devices, closing the lid might result in a `dptf_power 
     - HandleLidSwitch=ignore
     - HandleLidSwitchExternalPower=ignore
 
-A combination of this and adding `exec --no-startup-id xset -dpms force off i` and `exec --no-startup-id xset s off` to the i3 config file to turn off display power management and screensaver for ACPI, seemed to fix the freezing issue on lid closed for the surface 7.
+A combination of this and adding `exec --no-startup-id xset -dpms force off i` and `exec --no-startup-id xset s off` to the i3 config file to turn off display power management and screen-saver for ACPI, seemed to fix the freezing issue on lid closed for the surface 7.

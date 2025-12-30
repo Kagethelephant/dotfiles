@@ -13,24 +13,24 @@ return {
          "rafamadriz/friendly-snippets",
       },
    },
-   -- //////////////////// SIGNATURE HELP ///////////////////////// 
-   {
-      "ray-x/lsp_signature.nvim",
-      event = "InsertEnter",
+   -- -- //////////////////// SIGNATURE HELP ///////////////////////// 
+   -- {
+   --    "ray-x/lsp_signature.nvim",
+   --    event = "InsertEnter",
 
-      config = function()
-         local signature = require("lsp_signature")
+   --    config = function()
+   --       local signature = require("lsp_signature")
 
-         vim.keymap.set({ 'n','i' }, '<C-k>', function() signature.toggle_float_win() end, { silent = true, noremap = true, desc = 'toggle signature' })
-         signature.setup({
+   --       vim.keymap.set({"n","i"}, '<C-k>', function() signature.toggle_float_win() end, { silent = true, noremap = true, desc = 'toggle signature' })
+   --       signature.setup({
 
-            bind = true,
-            handler_opts = {
-               border = "rounded"
-            },
-         })
-      end
-   },
+   --          bind = true,
+   --          handler_opts = {
+   --             border = "rounded"
+   --          },
+   --       })
+   --    end
+   -- },
    -- //////////////////// NVIM-CMP ///////////////////////// 
    {
       "hrsh7th/nvim-cmp",
