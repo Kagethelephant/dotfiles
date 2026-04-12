@@ -22,6 +22,10 @@ return {
          ---eow stands for `end of word` - Recommended to set `virtual_symbol_prefix = ' ' and virtual_symbol_suffix = ''` when used.
          virtual_symbol_position = 'inline',
 
+         --#ffffffff
+         --0xffffffff
+         RRGGBBAA = true;
+
          ---Highlight hex colors, e.g. '#FFFFFF'
          enable_hex = true,
 

@@ -45,4 +45,3 @@ sudo pacman -S --noconfirm \
 #This updates database for plocate to work
 sudo updatedb
 
-

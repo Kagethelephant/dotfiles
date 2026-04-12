@@ -204,8 +204,9 @@ The i3 config file launches polybar using this file to insure they are not dupli
 - `journalctl -b -p 3` filters for errors during boot
 - The journal is cleared on reboot by default but you can modify `/etc/systemd/journald.conf` and edit storage to `#Storage=persistent`
 
-## GH auth login
+### GH auth login
 Sometimes git does not have proper access to the .config/gh/hosts.yml and config.yml. This will result in gh auth login going through the process and getting a success message in the browser but hanging in the terminal like its still waiting for authorization. You can use `chmod` to fix these permissions.
+
 ### Surface 7 freezing issue
 If you find an error saying that the random seed file is world accessible you might have to change the permissions for the boot partition in the `/etc/fstab` file. Change values so `fmask=0137` and `dmask=0027`
 
