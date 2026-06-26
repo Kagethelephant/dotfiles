@@ -152,7 +152,7 @@ Steps to install Arch, all necessary packages and stow all the dot files.
 ## GIT
 - `gh auth login` to authenticate github
 - `gh repo clone username/repo` will clone a repo
-- `gh repo create --source . --public` will create a new repo
+- `gh repo create --source . --public` will create a new repo (`gh repo create RepoName --public --source=. --remote=origin --push`)
 - `gh browse` to open the repo in the current directory in github
 - `git add .` add all changes to commit
 - `git commit -m 'comment'` commit changes
